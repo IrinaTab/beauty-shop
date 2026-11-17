@@ -1,0 +1,141 @@
+.card {
+    background-color: #fff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.imageWrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+    transform: scale(1.05);
+}
+
+.content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.3;
+    flex-grow: 1;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent-hover);
+    margin-bottom: 16px;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.addToCartBtn {
+    flex-grow: 1;
+}
+
+.askBtn {
+    flex-shrink: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+@media (max-width: 400px) {
+    .btnText {
+        display: none;
+    }
+}
+
+.askButton {
+    flex-shrink: 0;
+}
+
+/* Стили для контролов в модалке */
+.modalControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background-color: var(--bg-secondary);
+    padding: 8px;
+    border-radius: var(--radius-md);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.qtyBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #fff;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: background 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.qtyBtn:hover:not(:disabled) {
+    background: var(--accent-light);
+    color: var(--accent-hover);
+}
+
+.qtyBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.qtyInput {
+    width: 60px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.qtyInput:focus {
+    outline: none;
+}
+
+/* Скрываем стрелочки у инпута */
+.qtyInput::-webkit-outer-spin-button,
+.qtyInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

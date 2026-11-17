@@ -1,0 +1,87 @@
+/* Hero-баннер */
+.hero {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    text-align: center;
+    margin: var(--space-md) 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.heroContent {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    font-size: clamp(28px, 5vw, 48px);
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+}
+
+/* Секция с преимуществами */
+.features {
+    padding: var(--space-lg) 0;
+}
+
+.sectionTitle {
+    text-align: center;
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--space-md);
+}
+
+.featuresGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+    .featuresGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.featureCard {
+    background: #fff;
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.featureCard h3 {
+    margin: 16px 0 8px;
+    font-size: 20px;
+}
+
+.featureCard p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Секция с популярными товарами */
+.popular {
+    padding: var(--space-lg) 0;
+    background-color: var(--bg-primary);
+}
+
+.productsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--space-sm);
+}
+
+.viewAllBtnWrapper {
+    text-align: center;
+    margin-top: var(--space-md);
+}

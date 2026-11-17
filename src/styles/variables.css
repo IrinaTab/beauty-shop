@@ -1,0 +1,58 @@
+/* Глобальный шрифт */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+
+:root {
+    /* Базовые цвета */
+    --bg-primary: #fffaf9;
+    --bg-secondary: #f5ebe8;
+    --text-primary: #3d2c2e;
+    --text-secondary: #7a696b;
+
+    /* Акценты (легко менять под любой бренд) */
+    --accent: #d4a5a5;
+    --accent-hover: #c48e8e;
+    --accent-light: #fdf0f0;
+
+    /* Системные */
+    --border-color: #f0e6e6;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 2px 8px rgba(61, 44, 46, 0.05);
+    --shadow-md: 0 8px 24px rgba(61, 44, 46, 0.08);
+
+    /* Система адаптивных отступов (Fluid spacing) */
+    /* Отступы будут автоматически тянуться от 16px до 64px в зависимости от ширины экрана */
+    --space-xs: clamp(8px, 1vw, 12px);
+    --space-sm: clamp(16px, 2vw, 24px);
+    --space-md: clamp(24px, 4vw, 48px);
+    --space-lg: clamp(40px, 6vw, 80px);
+
+    /* Заголовки будут плавно уменьшаться на мобилках */
+    --font-size-h1: clamp(24px, 5vw, 40px);
+    --font-size-h2: clamp(20px, 4vw, 32px);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}

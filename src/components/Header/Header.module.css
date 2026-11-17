@@ -1,0 +1,132 @@
+.header {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.logo {
+    font-size: clamp(20px, 3vw, 24px);
+    /* Адаптивный логотип */
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 102;
+    /* Чтобы логотип был поверх меню */
+}
+
+/* Десктопная навигация */
+.desktopNav {
+    display: none;
+    /* Скрыта на мобилках */
+    gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .desktopNav {
+        display: flex;
+        /* Показываем на экранах от 768px */
+    }
+}
+
+.navLink {
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+}
+
+.navLink:hover,
+.navLink.active {
+    color: var(--accent);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 102;
+}
+
+.cartBtn {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: var(--accent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Кнопка бургера (видна только на мобилках) */
+.burgerBtn {
+    display: block;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 8px;
+}
+
+@media (min-width: 768px) {
+    .burgerBtn {
+        display: none;
+        /* Скрываем на десктопе */
+    }
+}
+
+/* Мобильное меню */
+.mobileMenu {
+    position: fixed;
+    top: 80px;
+    /* Высота хедера */
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-150%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 101;
+}
+
+.mobileMenuOpen {
+    transform: translateY(0);
+}
+
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-sm);
+    gap: 16px;
+}
+
+.mobileNavLink {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-primary);
+    padding: 8px 0;
+}
+
+.mobileNavLink.active {
+    color: var(--accent);
+}

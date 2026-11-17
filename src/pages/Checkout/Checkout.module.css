@@ -1,0 +1,127 @@
+.page {
+    padding: var(--space-lg) 0;
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+    font-size: 14px;
+}
+
+.backLink:hover {
+    color: var(--accent);
+}
+
+.title {
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--space-md);
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr 400px;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #fff;
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 16px;
+    /* Важно: 16px предотвращает зум на iOS */
+    background-color: var(--bg-primary);
+    transition: border-color 0.2s;
+}
+
+.field input:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    padding: 10px;
+    background-color: #ffebeb;
+    border-radius: var(--radius-sm);
+}
+
+.summary {
+    background: #fff;
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    height: fit-content;
+}
+
+.summary h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.summaryList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.summaryList li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.summaryTotal {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.successState {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.successState p {
+    color: var(--text-secondary);
+    margin-top: 12px;
+}
