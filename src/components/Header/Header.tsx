@@ -18,6 +18,7 @@ export const Header = () => {
         { path: '/catalog', label: 'Каталог' },
         { path: '/about', label: 'О нас' },
         { path: '/contacts', label: 'Контакты' },
+        { path: '/delivery', label: 'Доставка и оплата' },
     ];
 
     return (
