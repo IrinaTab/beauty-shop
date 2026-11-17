@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Product } from '../../types';
-import { Button } from '../Button';
-import { Modal } from '../Modal';
+import { Button } from '../ui/Button';
+import { Modal } from '../ui/Modal';
 import { ShoppingBag, MessageCircle, Plus, Minus, CheckCircle2 } from 'lucide-react';
 import styles from './ProductCard.module.css';
 import { useCart } from '../../context/CartContext';

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { ShoppingBag, Sparkles, Menu, X } from 'lucide-react';
-import { Container } from '../Container';
-import { Button } from '../Button';
+import { Container } from '../ui/Container';
+import { Button } from '../ui/Button';
 import { useCart } from '../../context/CartContext';
 import styles from './Header.module.css';
 import { clsx } from 'clsx';

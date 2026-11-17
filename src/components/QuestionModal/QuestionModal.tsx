@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Modal } from '../Modal';
-import { Button } from '../Button';
+import { Modal } from '../ui/Modal';
+import { Button } from '../ui/Button';
+import { Checkbox } from '../ui/Checkbox';
 import type { Product } from '../../types';
 import styles from './QuestionModal.module.css';
 
@@ -14,6 +15,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({ isOpen, onClose, p
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [question, setQuestion] = useState('');
+    const [agreed, setAgreed] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
@@ -21,7 +23,6 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({ isOpen, onClose, p
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Формируем текст для Telegram
         const message = `
 ❓ *Вопрос по товару*
 📦 Товар: ${product.name} (ID: ${product.id})
@@ -31,7 +32,6 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({ isOpen, onClose, p
     `;
 
         try {
-            // Отправляем на нашу Serverless-функцию (которую создадим чуть позже)
             const res = await fetch('/api/send-order', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -45,7 +45,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({ isOpen, onClose, p
                 setIsSuccess(false);
                 onClose();
                 // Очищаем форму
-                setName(''); setPhone(''); setQuestion('');
+                setName(''); setPhone(''); setQuestion(''); setAgreed(false);
             }, 2500);
 
         } catch (err) {
@@ -87,11 +87,22 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({ isOpen, onClose, p
                         <textarea
                             placeholder="Ваш вопрос..."
                             required
-                            rows={4}
+                            rows={3}
                             value={question}
                             onChange={(e) => setQuestion(e.target.value)}
                             className={styles.textarea}
                         />
+
+                        {/* Новый универсальный чекбокс */}
+                        <Checkbox
+                            id="privacy-q"
+                            required
+                            checked={agreed}
+                            onChange={(checked) => setAgreed(checked)}
+                        >
+                            Я согласен с <a href="/privacy" target="_blank" rel="noreferrer">политикой конфиденциальности</a>
+                        </Checkbox>
+
                         <Button type="submit" variant="primary" fullWidth disabled={isSubmitting}>
                             {isSubmitting ? 'Отправка...' : 'Отправить вопрос'}
                         </Button>

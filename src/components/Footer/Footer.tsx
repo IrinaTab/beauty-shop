@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
-import { Container } from '../Container';
+import { Container } from '../ui/Container';
 import styles from './Footer.module.css';
 
 export const Footer = () => {

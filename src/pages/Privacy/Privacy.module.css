@@ -1,0 +1,28 @@
+.page {
+    padding: var(--space-lg) 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: var(--font-size-h1);
+    margin-bottom: var(--space-md);
+}
+
+.content {
+    background: #fff;
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    line-height: 1.7;
+}
+
+.content h2 {
+    font-size: 20px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.content p {
+    color: var(--text-secondary);
+}

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import { Container } from '../../components/Container';
-import { Button } from '../../components/Button';
+import { Container } from '../../components/ui/Container';
+import { Button } from '../../components/ui/Button';
 import { useCart } from '../../context/CartContext';
 import styles from './Checkout.module.css';
 
@@ -10,12 +10,11 @@ export const CheckoutPage = () => {
     const { cart, totalPrice, clearCart } = useCart();
     const navigate = useNavigate();
 
-    const [formData, setFormData] = useState({ name: '', phone: '', comment: '' });
+    const [formData, setFormData] = useState({ name: '', phone: '', comment: '', agreed: false });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState('');
 
-    // Если корзина пуста, нечего оформлять
     if (cart.length === 0 && !isSuccess) {
         navigate('/cart');
         return null;
@@ -26,7 +25,6 @@ export const CheckoutPage = () => {
         setIsSubmitting(true);
         setError('');
 
-        // Формируем текст сообщения для Telegram
         const orderDetails = cart
             .map(item => `• ${item.name} — ${item.quantity} шт. (${item.price * item.quantity} ₽)`)
             .join('\n');
@@ -44,7 +42,6 @@ ${orderDetails}
     `;
 
         try {
-            // Отправляем запрос на нашу будущую Vercel Serverless функцию
             const response = await fetch('/api/send-order', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -62,7 +59,6 @@ ${orderDetails}
         }
     };
 
-    // Экран успеха
     if (isSuccess) {
         return (
             <Container>
@@ -87,7 +83,6 @@ ${orderDetails}
                 <h1 className={styles.title}>Оформление заказа</h1>
 
                 <div className={styles.layout}>
-                    {/* Форма */}
                     <form className={styles.form} onSubmit={handleSubmit}>
                         {error && <div className={styles.error}>{error}</div>}
 
@@ -123,12 +118,25 @@ ${orderDetails}
                             />
                         </div>
 
+                        {/* Блок чекбокса */}
+                        <div className={styles.checkboxField}>
+                            <input
+                                type="checkbox"
+                                id="privacy-checkout"
+                                required
+                                checked={formData.agreed}
+                                onChange={e => setFormData({ ...formData, agreed: e.target.checked })}
+                            />
+                            <label htmlFor="privacy-checkout">
+                                Я согласен с <a href="/privacy" target="_blank" rel="noreferrer">политикой конфиденциальности</a>
+                            </label>
+                        </div>
+
                         <Button type="submit" variant="primary" fullWidth disabled={isSubmitting}>
                             {isSubmitting ? 'Отправка...' : 'Подтвердить заказ'}
                         </Button>
                     </form>
 
-                    {/* Краткая сводка */}
                     <div className={styles.summary}>
                         <h2>Ваш заказ</h2>
                         <ul className={styles.summaryList}>

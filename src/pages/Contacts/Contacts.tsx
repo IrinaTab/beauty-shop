@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
-import { Container } from '../../components/Container';
-import { Button } from '../../components/Button';
+import { Container } from '../../components/ui/Container';
+import { Button } from '../../components/ui/Button';
+import { Checkbox } from '../../components/ui/Checkbox';
 import styles from './Contacts.module.css';
 
 export const ContactsPage = () => {
-    const [formData, setFormData] = useState({ name: '', contact: '', message: '' });
+    const [formData, setFormData] = useState({ name: '', contact: '', message: '', comment: '', agreed: false });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
@@ -31,7 +32,7 @@ export const ContactsPage = () => {
             if (!res.ok) throw new Error('Ошибка');
 
             setIsSuccess(true);
-            setFormData({ name: '', contact: '', message: '' });
+            setFormData({ name: '', contact: '', message: '', comment: '', agreed: false });
 
             // Скрываем сообщение об успехе через 4 секунды
             setTimeout(() => setIsSuccess(false), 4000);
@@ -100,6 +101,16 @@ export const ContactsPage = () => {
                                     onChange={e => setFormData({ ...formData, message: e.target.value })}
                                     className={styles.textarea}
                                 />
+                                {/* Новый универсальный чекбокс */}
+                                <Checkbox
+                                    id="privacy-q"
+                                    required
+                                    checked={formData.agreed}
+                                    onChange={(checked) => setFormData({ ...formData, agreed: checked })}
+                                >
+                                    Я согласен с <a href="/privacy" target="_blank" rel="noreferrer">политикой конфиденциальности</a>
+                                </Checkbox>
+
                                 <Button type="submit" variant="primary" fullWidth disabled={isSubmitting}>
                                     {isSubmitting ? 'Отправка...' : 'Отправить'}
                                 </Button>

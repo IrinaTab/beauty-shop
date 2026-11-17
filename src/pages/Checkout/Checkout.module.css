@@ -125,3 +125,22 @@
     color: var(--text-secondary);
     margin-top: 12px;
 }
+
+.checkboxField {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.checkboxField input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+}
+
+.checkboxField a {
+    color: var(--accent);
+    text-decoration: underline;
+}

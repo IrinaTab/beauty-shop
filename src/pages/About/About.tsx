@@ -1,4 +1,4 @@
-import { Container } from '../../components/Container';
+import { Container } from '../../components/ui/Container';
 import { Sparkles, Heart, Leaf } from 'lucide-react';
 import styles from './About.module.css';
 

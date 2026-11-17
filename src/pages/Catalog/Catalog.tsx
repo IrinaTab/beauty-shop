@@ -1,5 +1,5 @@
 import { ProductCard } from '../../components/ProductCard';
-import { Container } from '../../components/Container';
+import { Container } from '../../components/ui/Container';
 import { products } from '../../data/products';
 import styles from './Catalog.module.css';
 
