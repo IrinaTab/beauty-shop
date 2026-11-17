@@ -111,7 +111,7 @@ export const ContactsPage = () => {
                                     Я согласен с <a href="/privacy" target="_blank" rel="noreferrer">политикой конфиденциальности</a>
                                 </Checkbox>
 
-                                <Button type="submit" variant="primary" fullWidth disabled={isSubmitting}>
+                                <Button type="submit" variant="primary" className={styles.submitBtn} disabled={isSubmitting}>
                                     {isSubmitting ? 'Отправка...' : 'Отправить'}
                                 </Button>
                             </form>

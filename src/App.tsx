@@ -7,6 +7,7 @@ import { CartPage } from './pages/Cart';
 import { CheckoutPage } from './pages/Checkout';
 import { AboutPage } from './pages/About';
 import { ContactsPage } from './pages/Contacts';
+import { PrivacyPage } from './pages/Privacy';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
       </main>
       <Footer />

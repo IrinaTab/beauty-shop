@@ -82,3 +82,16 @@
     border-radius: var(--radius-sm);
     text-align: center;
 }
+
+.submitBtn {
+    align-self: flex-end;
+    min-width: 200px;
+    margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+    .submitBtn {
+        align-self: stretch;
+        width: 100%;
+    }
+}
