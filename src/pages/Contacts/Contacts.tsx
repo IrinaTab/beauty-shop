@@ -85,9 +85,10 @@ export const ContactsPage = () => {
                                     onChange={e => setFormData({ ...formData, name: e.target.value })}
                                     className={styles.input}
                                 />
+                                <span>Укажите удобный способ связи</span>
                                 <input
                                     type="text"
-                                    placeholder="Телефон или Email"
+                                    placeholder="Телефон, Email или @username"
                                     required
                                     value={formData.contact}
                                     onChange={e => setFormData({ ...formData, contact: e.target.value })}

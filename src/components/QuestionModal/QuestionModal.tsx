@@ -76,9 +76,10 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({ isOpen, onClose, p
                             onChange={(e) => setName(e.target.value)}
                             className={styles.input}
                         />
+                        <span>Укажите удобный способ связи</span>
                         <input
-                            type="tel"
-                            placeholder="Телефон или Email"
+                            type="text"
+                            placeholder="Телефон, Email или @username"
                             required
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
