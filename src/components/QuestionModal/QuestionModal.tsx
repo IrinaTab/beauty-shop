@@ -80,6 +80,8 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({ isOpen, onClose, p
                             onChange={(e) => setName(e.target.value)}
                             className={styles.input}
                         />
+                        <span>Укажите удобный способ связи</span>
+
                         <input
                             type="text"
                             placeholder="Телефон, Email или @username"
