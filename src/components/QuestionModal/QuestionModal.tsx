@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Modal } from '../ui/Modal';
 import { Button } from '../ui/Button';
 import { Checkbox } from '../ui/Checkbox';
+import { CheckCircle2 } from 'lucide-react';
 import type { Product } from '../../types';
 import styles from './QuestionModal.module.css';
 
@@ -58,7 +59,9 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({ isOpen, onClose, p
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
             {isSuccess ? (
+                // Окно успеха с автозакрытием через 2.5 секунды
                 <div className={styles.success}>
+                    <CheckCircle2 size={48} color="var(--accent)" style={{ margin: '0 auto 16px' }} />
                     <h2>Вопрос отправлен!</h2>
                     <p>Мы свяжемся с вами в ближайшее время.</p>
                 </div>
@@ -68,6 +71,7 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({ isOpen, onClose, p
                     <p className={styles.subtitle}>По товару: <strong>{product.name}</strong></p>
 
                     <form onSubmit={handleSubmit} className={styles.form}>
+                        {/* ... ваши инпуты (имя, контакт, вопрос) ... */}
                         <input
                             type="text"
                             placeholder="Ваше имя"
@@ -76,7 +80,6 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({ isOpen, onClose, p
                             onChange={(e) => setName(e.target.value)}
                             className={styles.input}
                         />
-                        <span>Укажите удобный способ связи</span>
                         <input
                             type="text"
                             placeholder="Телефон, Email или @username"
@@ -94,7 +97,6 @@ export const QuestionModal: React.FC<QuestionModalProps> = ({ isOpen, onClose, p
                             className={styles.textarea}
                         />
 
-                        {/* Новый универсальный чекбокс */}
                         <Checkbox
                             id="privacy-q"
                             required
