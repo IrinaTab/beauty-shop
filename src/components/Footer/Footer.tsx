@@ -28,9 +28,9 @@ export const Footer = () => {
                     <div className={styles.links}>
                         <h4>Помощь</h4>
                         <ul>
-                            <li><Link to="/">Доставка и оплата</Link></li>
-                            <li><Link to="/">Возврат</Link></li>
-                            <li><Link to="/">Часто задаваемые вопросы</Link></li>
+                            <li><Link to="/delivery">Доставка и оплата</Link></li>
+                            <li><Link to="/returns">Возврат</Link></li>
+                            <li><Link to="/faq">Часто задаваемые вопросы</Link></li>
                         </ul>
                     </div>
                 </div>
