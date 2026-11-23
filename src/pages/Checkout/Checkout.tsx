@@ -191,7 +191,7 @@ ${orderDetails}
                         {(formData.deliveryMethod === 'courier' || formData.deliveryMethod === 'cdek') && (
                             <div className={styles.field}>
                                 <label>
-                                    {formData.deliveryMethod === 'cdek' ? 'Адрес или код пункта выдачи СДЭК *' : 'Адрес доставки *'}
+                                    {formData.deliveryMethod === 'cdek' ? 'Адрес или код пункта выдачи СДЭК *' : 'Адрес доставки (доставка курьером только по Москве)*'}
                                 </label>
                                 <input
                                     type="text"
@@ -201,7 +201,7 @@ ${orderDetails}
                                     placeholder={
                                         formData.deliveryMethod === 'cdek'
                                             ? 'Например: г. Москва, ул. Тверская, 10 (или код ПВЗ)'
-                                            : 'Город, улица, дом, квартира'
+                                            : 'Улица, дом, квартира'
                                     }
                                 />
                             </div>
