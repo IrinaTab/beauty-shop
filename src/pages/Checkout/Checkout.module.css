@@ -144,3 +144,197 @@
     color: var(--accent);
     text-decoration: underline;
 }
+
+.paymentMethods {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.paymentOption {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    background-color: var(--bg-primary);
+    transition: all 0.2s;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.paymentOption input {
+    display: none;
+}
+
+.paymentOption:hover {
+    border-color: var(--accent);
+}
+
+.paymentOptionActive {
+    border-color: var(--accent);
+    background-color: var(--accent-light);
+    color: var(--accent-hover);
+}
+
+/* Стили для блока с QR-кодом */
+.qrBlock {
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-align: center;
+    margin-top: 8px;
+    border: 1px dashed var(--accent);
+}
+
+.qrTitle {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.qrImageWrapper {
+    background: #fff;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.qrImage {
+    display: block;
+    width: 150px;
+    height: 150px;
+}
+
+.qrText {
+    font-size: 14px;
+    color: var(--text-secondary);
+    max-width: 280px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .paymentMethods {
+        flex-direction: column;
+    }
+}
+
+.submitBtn {
+    align-self: flex-end;
+    min-width: 200px;
+    margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+    .submitBtn {
+        align-self: stretch;
+        width: 100%;
+    }
+}
+
+/* Стили для кнопки отправки (если еще нет) */
+.submitBtn {
+    align-self: flex-end;
+    min-width: 200px;
+    margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+    .submitBtn {
+        align-self: stretch;
+        width: 100%;
+    }
+}
+
+.pickupInfo {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: var(--bg-secondary);
+    padding: 16px;
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--accent);
+}
+
+.pickupInfo strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.pickupInfo p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Стили для кнопки отправки (если еще нет) */
+.submitBtn {
+    align-self: flex-end;
+    min-width: 200px;
+    margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+    .submitBtn {
+        align-self: stretch;
+        width: 100%;
+    }
+}
+
+/* Стили для блока информации о самовывозе */
+.pickupInfo {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: var(--bg-secondary);
+    padding: 16px;
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--accent);
+}
+
+.pickupInfo strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.pickupInfo p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* --- Стили для подарочной упаковки --- */
+.giftBlock {
+    background-color: var(--bg-secondary);
+    padding: 16px;
+    border-radius: var(--radius-md);
+    margin-bottom: 8px;
+}
+
+.giftLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.giftOptions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+/* Стили для строки упаковки в чеке */
+.giftSummaryItem {
+    color: var(--accent-hover);
+    font-weight: 500;
+    margin-top: 8px;
+}
