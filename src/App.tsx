@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
+import { ScrollToTopButton } from './components/ui/ScrollToTopButton';
 import { HomePage } from './pages/Home';
 import { CatalogPage } from './pages/Catalog';
 import { CartPage } from './pages/Cart';
@@ -15,6 +17,8 @@ import FaqPage from './pages/FAQ';
 function App() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <ScrollToTop />
+
       <Header />
       <main style={{ flexGrow: 1 }}>
         <Routes>
@@ -31,6 +35,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <ScrollToTopButton />
     </div>
   )
 }
