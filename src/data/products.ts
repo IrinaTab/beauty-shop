@@ -54,17 +54,31 @@ const rawProducts: Omit<Product, 'id' | 'image'>[] = [
         propertyIds: ['all'],
         tagIds: ['protection', 'anti-age'],
     },
+    {
+        name: 'Мист для тела',
+        price: 800,
+        categoryId: 'care',
+        description: 'Спрей для тела парфюмированный. Увлажнение и питание.',
+        propertyIds: ['all'],
+        tagIds: ['nutrition'],
+    },
+    {
+        name: 'Крем для рук',
+        price: 300,
+        categoryId: 'protection',
+        description: 'Крем для рук питательный.',
+        propertyIds: ['all'],
+        tagIds: ['protection', 'nutrition'],
+    },
+
 ];
 
-// 1. Создаем генератор ID (сначала он пустой, maxId = 0)
 const getNextId = createIdGenerator(rawProducts);
 
-// 2. Собираем итоговый массив
 export const products: Product[] = rawProducts.map((raw) => {
-    // 3. Получаем фиксированный ID (при первом запуске это prod_1, prod_2 и т.д.)
     const fixedId = getNextId();
 
-    // 4. Выводим подсказку для разработчика
+    // 4. Вывод подсказки для разработчика
     console.log(
         `%c[Товар] "${raw.name}"%c\nID: ${fixedId}\nКартинка: public/products/${fixedId}.jpg`,
         'color: #d4a5a5; font-weight: bold;',
@@ -73,7 +87,7 @@ export const products: Product[] = rawProducts.map((raw) => {
 
     return {
         ...raw,
-        id: fixedId, // Записываем в товар
-        image: `/products/${fixedId}.jpg`, // Формируем путь
+        id: fixedId,
+        image: `/products/${fixedId}.jpg`,
     };
 });
