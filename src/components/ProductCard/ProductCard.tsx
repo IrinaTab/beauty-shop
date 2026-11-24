@@ -46,6 +46,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                         src={product.image}
                         alt={product.name}
                         className={styles.image}
+                        loading="lazy"
                         onError={(e) => {
                             (e.target as HTMLImageElement).src = '/no-image.jpg';
                         }}
